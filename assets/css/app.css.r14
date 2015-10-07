@@ -1,0 +1,88 @@
+.titulo_painel {font-size:20px;font-weight:bold;font-style:italic;}
+.bg-gray{background:#9ACFEA;}
+
+.margin10px {margin-left:10px;}
+
+li a.hoverBranco {color:#FFFFFF}
+
+.bold {font-weight:bold;}
+
+.relatorio_impressao label {
+           display: block;
+           text-align: center;
+        }
+.relatorio_impressao img {
+        max-width: 100%;
+        }        
+.relatorio_impressao label {
+            margin:20px 0 20px 0;
+        }
+        
+       
+.relatorio_impressao {
+           text-align: justify;
+           line-height:250%;
+           text-indent: 5.5em;
+          
+        }
+.local_data {
+    text-align: right;
+    margin-top:30px; 
+    font-family: "Times New Roman", Times, serif;
+    }
+    p.declaracao{
+        	font-family: "Times New Roman", Times, serif;
+        	font-size:16pt;
+        }
+    .paragrafo1, .paragrafo2{
+        	font-family: "Times New Roman", Times, serif;
+        	font-size:14pt;
+        }
+        
+    .borderred{
+        border:1px solid #f50;
+    }
+ /* media print da página de requerimentos*/   
+@media print {
+    
+         html,body{ /*Tamanho da página A4*/
+            height:100mm;
+            width:210mm;
+            background: rgb(204,204,204); 
+            font-size: 14pt;
+            font-family: "Times New Roman";
+            color: #000;
+            height: 25.0cm;
+            border:none;
+            
+        }
+        .no-print,.btn ,.breadcrumb,.panel-heading ,.box-header{
+            display: none;
+        }
+        img {
+        max-width: 100%;
+        }
+        .panel-default{
+            border:none;
+       }   
+       
+       
+       
+        .texto_validacao {
+           
+            margin-top:100%;
+            color:#ccc;
+            font-size: 12px;
+            display:block;
+            text-align: center;
+             position:fixed;
+             padding-left:30px;
+            
+           
+        }
+    }
+
+    
+    
+
+    
