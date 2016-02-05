@@ -1,11 +1,11 @@
 <?php  if ( ! defined("BASEPATH")) exit("No direct script access allowed");
 				$active_group = "default";
 				$active_record = TRUE;
-				//$db["default"]["hostname"] = "177.69.195.6";
+				$db["default"]["hostname"] = "177.69.195.6";
 				//$db["default"]["hostname"] = "localhost";
 				$db["default"]["username"] = "root";
-				//$db["default"]["password"] = "MY123bd"; 
-				$db["default"]["password"] = ""; 
+				$db["default"]["password"] = "MY123bd"; 
+				//$db["default"]["password"] = ""; 
 				$db["default"]["database"] = "lista_inscricoes";
 				$db["default"]["dbdriver"] = "mysql";
 				$db["default"]["dbprefix"] = "";
