@@ -11,16 +11,20 @@ class inscricoes_Model extends CI_Model {
             else:
                 set_msg('msgerro', '<div class="alert alert-danger"><strong>Erro ao fazer a inscrição.<br/> Verifique suas informações e tente novamente.</strong>.</div>', 'erro');
             endif;
-            if ($redir) redirect(current_url());
+            if ($redir) redirect('painel');
 			
         endif;
     }
         
-	public function get_inscricoes($identify=NULL,$matricula=NULL,$redir = TRUE){
-			
-		$this->db->order_by('data','asc');
-		return $this->db->get('inscricoes');
-		//if ($redir) redirect('inscricoes');
+	public function get_inscricoes($periodo=NULL){
+		if ($periodo != NULL):	
+			$this->db
+				->order_by('data','asc')
+				->where('periodo',$periodo);
+			return $this->db->get('inscricoes');
+		else:
+			return FALSE;
+		endif;
 	}
 
 	

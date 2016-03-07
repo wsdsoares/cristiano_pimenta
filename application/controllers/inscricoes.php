@@ -18,6 +18,18 @@ class inscricoes extends CI_Controller {
 		load_template();
 	}
 	
+	public function periodos(){
+		set_tema('titulo', 'Periodos');
+		set_tema('conteudo', load_modulo('inscricoes', 'periodos','painel'));
+		load_template();
+	}
+	
+	public function lista_periodos(){
+		set_tema('titulo', 'Periodos');
+		set_tema('conteudo', load_modulo('inscricoes', 'lista_periodos','painel'));
+		load_template();
+	}
+	
 	public function inscrever(){
 		$this->form_validation->set_message('is_unique', 'Esta %s já está cadastrado no sistema');
 		$this->form_validation->set_rules('matricula', 'MATRÍCULA', 'trim|rrequired|is_unique[inscricoes.matricula]');
@@ -31,14 +43,14 @@ class inscricoes extends CI_Controller {
 		
 	    $dia = date( 'Y-m-d H:m:s' );
 		if ($this->form_validation->run()==TRUE):
-			$dados = elements(array('matricula', 'nome', 'turma'), $this->input->post());
+			$dados = elements(array('matricula', 'nome', 'turma','periodo'), $this->input->post());
 			$dados['data'] = $dia;
 			$validacao = $this->inscricoes->do_insert($dados);
 			
 			
 			$this->inscricoes->do_insert('laboratorios',$dados);
 		endif;
-		set_tema('titulo', 'Validação');
+		set_tema('titulo', 'Inscrição');
 		set_tema('conteudo', load_modulo('inscricoes', 'inscrever','painel'));
 		load_template();
 	}

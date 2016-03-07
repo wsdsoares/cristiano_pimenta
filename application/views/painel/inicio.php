@@ -4,6 +4,12 @@ switch ($tela):
     case 'inicio':
 
         ?>
+        
+         <?php   //erros de validação dos campos do formulário 
+		   get_msg('msgok');
+		   get_msg('msgerro');
+		   
+		?>
         <aside class="right-side">
             <ol class="breadcrumb">
                 <?php echo breadcrumb(); ?>
@@ -13,7 +19,7 @@ switch ($tela):
                             <div class="panel panel-info">
                             	<?php
                             	
-                            	echo anchor('inscricoes/inscrever','
+                            	echo anchor('inscricoes/periodos','
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">
@@ -28,7 +34,7 @@ switch ($tela):
                                 </div>');
                                 
 
-                                    echo anchor('inscricoes/inscrever','
+                                    echo anchor('inscricoes/periodos','
                                     <div class="panel-footer">
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                         <span class="pull-left">Clique aqui para inscrever</span>
@@ -45,7 +51,7 @@ switch ($tela):
                             <div class="panel panel-info">
                             	<?php
                             	
-                            	echo anchor('inscricoes/lista_inscritos','
+                            	echo anchor('inscricoes/lista_periodos','
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">
@@ -60,7 +66,7 @@ switch ($tela):
                                 </div>');
                                 
 
-                                    echo anchor('inscricoes/lista_inscritos','
+                                    echo anchor('inscricoes/lista_periodos','
                                     <div class="panel-footer">
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                         <span class="pull-left">Clique aqui ver lista de inscritos</span>

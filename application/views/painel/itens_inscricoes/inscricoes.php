@@ -1,41 +1,34 @@
-
+<?php
+		                    		
+ $periodo = $this->uri->segment(3);
+?>
 <aside class="right-side">
     <section class="content-header">
         
         <div class="box-header">
-        	<h3 class="box-title center">LISTA DE INSCRIÇÃO
-            	<small> - Inscrever-se</small>
-            </h3> 
+        	
+        	<?php
+        	if($periodo==1):
+        	?>
+        	<h3 class="box-title center"> LISTA DE INSCRIÇÃO<img src="<?php echo base_url()?>assets/img/first.png" height='64' width="64">
+        		<small> Alunos do 1º Período</small>
+    		</h3> 
+        	<?php
+			elseif($periodo==3):
+        	?>
+        	<h3 class="box-title center"> LISTA DE INSCRIÇÃO<img src="<?php echo base_url()?>assets/img/three.png" height='64' width="64">
+        		<small> Alunos do 3º Período</small>
+        	</h3> 
+        	<?php
+			endif;
+        	?>
+            
         </div>
         <ol class="breadcrumb">
           <?php   echo breadcrumb();?>
         </ol>
     </section>
 	
-        <!--div class="panel panel-info">
-            <div class="panel-heading">
-                <strong>Atenção</strong>
-            </div>
-            <div class="panel-body">
-                <p>
-                     Ao informar o <strong><abbr title="Esse código fica no rodapé dos documentos gerados digitalmente" class="initialism">"Código de validação"</abbr></strong> deverá ser gerada
-                     uma mensagem de <strong>validação </strong>confirmando a autenticidade do documento.
-                </p>
-                <p>
-                    Caso não seja confirmada a autenticidade, esse documento torna-se <strong>inválido</strong>!
-                </p>
-                <br>
-                <h5>Dúvidas, entre em contato com a Secretaria Acadêmica:</h5>
-                
-                <address>
-                    <strong>Contatos</strong><br/>
-                    <strong><abbr title="Telefone">Telefone:</abbr></strong> (38) 3672-3737
-                    <br>
-
-                    <strong>Email:</strong> <a href="mailto:#">secretaria@atenas.edu.br</a>
-                </address>
-            </div>
-        </div-->
        <?php   //erros de validação dos campos do formulário 
 		   get_msg('msgok');
 		   get_msg('msgerro');
@@ -56,7 +49,7 @@
 									?>
 								   
 									<?php
-										echo form_open('inscricoes/inscrever');
+										echo form_open('inscricoes/inscrever/');
 									?>
                                     <div class="form-group"> 
 										<label>Matrícula</label>
@@ -92,9 +85,17 @@
 						                    echo form_dropdown('turma', $options,set_value('turma'),'class="form-control"');
 		                            	?>
 		                    		</div>
+		                    		
                                    <?php
-									echo form_submit(array('name'=>'validar', 'class'=>'btn btn-success margin10px'), 'Validar Documento');
+                                   	
+                                   	
+                                   	
+									echo form_submit(array('name'=>'validar', 'class'=>'btn btn-success margin10px'), 'Inscrever');
+									echo anchor('painel', 'Voltar', array('class'=>'btn btn-danger margin10px'));
+									echo form_hidden('periodo',$periodo);
 									echo form_close();
+									
+									
 									?>
                                 </div>
                                

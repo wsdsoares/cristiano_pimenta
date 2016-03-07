@@ -135,10 +135,10 @@
                                 <?php echo anchor('painel', '<i class="fa fa-home"></i> Inicio</a>'); ?>
 							</li>
 							 <li>
-				                 <?php echo anchor('inscricoes/inscrever', '<i class="fa fa-user"></i> <span> Inscrever-se</span>'); ?>
+				                 <?php echo anchor('inscricoes/periodos', '<i class="fa fa-user"></i> <span> Inscrever-se</span>'); ?>
 					        </li>
                             <li>
-				                 <?php echo anchor('inscricoes/lista_inscritos', '<i class="fa fa-file-text"></i> <span> Lista de inscritos</span>'); ?>
+				                 <?php echo anchor('inscricoes/lista_periodos', '<i class="fa fa-file-text"></i> <span> Lista de inscritos</span>'); ?>
 					        </li>
 						</ul>
 

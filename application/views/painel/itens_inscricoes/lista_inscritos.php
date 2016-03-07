@@ -1,11 +1,28 @@
+<?php
 
+$periodo = $this->uri->segment(3);
+?>
 <aside class="right-side">
     <section class="content-header">
         
         <div class="box-header">
-        	<h3 class="box-title center">LISTA DE INSCRIÇÃO
-            	<small> - Inscrever-se</small>
-            </h3> 
+        	
+        	<?php
+        	if($periodo==3):
+        	?>
+        	<h3 class="box-title center"> LISTA DE INSCRIÇÃO<img src="<?php echo base_url()?>assets/img/view_3.png" height='64' width="64">
+        		<small> Alunos do 3º Período</small>
+    		</h3> 
+        	<?php
+			else:
+        	?>
+        	<h3 class="box-title center"> LISTA DE INSCRIÇÃO<img src="<?php echo base_url()?>assets/img/view_1.png" height='64' width="64">
+        		<small> Alunos do 1º Período</small>
+        	</h3> 
+        	<?php
+			endif;
+        	?>
+            
         </div>
         <ol class="breadcrumb">
           <?php   echo breadcrumb();?>
@@ -16,7 +33,20 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-				                    <small>Lista inscritos</small>
+                        	
+                        	<?php
+				        	if($periodo==3):
+				        	?>
+		                    <small>Lista inscritos</small>
+		                    <strong> Alunos do 3º Período</strong>
+		                    <?php
+							elseif($periodo==1):
+				        	?>
+				        	<small>Lista inscritos</small>
+		                    <strong> Alunos do 1º Período</strong>
+				        	<?php
+							endif;
+				        	?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="table-responsive">
@@ -30,6 +60,7 @@
 									      <th>Matrícula</th>
 									      <th>Nome</th>
 									      <th>Turma</th>
+									      <th>Periodo</th>
 									      <th>Data inscricao</th>
 									      <!--th></th>
 									      <th></th-->
@@ -38,7 +69,7 @@
 									<tbody>
 							  <?php
 							  		
-									$inscritos = $this->inscricoes->get_inscricoes()->result();
+									$inscritos = $this->inscricoes->get_inscricoes($periodo)->result();
 									$cont = 0;
 									foreach ($inscritos as $linha) :
 										$cont +=1;
@@ -47,6 +78,7 @@
 										printf('<td>%s</td>',$linha->matricula);
 										printf('<td>%s</td>',$linha->nome);
 										printf('<td>%s</td>',$linha->turma);
+										printf('<td>%s</td>',$linha->periodo);
 										printf('<td>%s</td>',$linha->data);
 										echo '</tr>';
 									endforeach;
